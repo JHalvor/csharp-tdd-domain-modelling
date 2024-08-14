@@ -20,5 +20,21 @@ namespace tdd_domain_modelling.CSharp.Test
             //Assert
             Assert.That(expectedBasketAddResult, Is.EqualTo(actualBasketAddResult));
         }
+
+        [TestCase("Apple", 12, false)]
+        [TestCase("Banana", 5, false)]
+        [TestCase("Coffee", 8, false)]
+        public void TestAddExistingProductInBasket(string product, int price, bool expectedBasketAddResult)
+        {
+            //Arrange
+            Supermarket customer = new Supermarket();
+            customer.Add(product, price);
+
+            //Act
+            bool actualBasketAddResult = customer.Add(product, price);
+
+            //Assert
+            Assert.That(expectedBasketAddResult, Is.EqualTo(actualBasketAddResult));
+        }
     }
 }
