@@ -20,5 +20,14 @@ namespace tdd_domain_modelling.CSharp.Main
             basket.Add(product, price);
             return true;
         }
+
+        public int GetTotalPrices()
+        {
+            if (basket.Count == 0)
+            {
+                return 0;
+            }
+            return basket.Values.Sum(x => x);
+        }
     }
 }

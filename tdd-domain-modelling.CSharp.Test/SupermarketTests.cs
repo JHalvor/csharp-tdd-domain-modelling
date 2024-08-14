@@ -36,5 +36,22 @@ namespace tdd_domain_modelling.CSharp.Test
             //Assert
             Assert.That(expectedBasketAddResult, Is.EqualTo(actualBasketAddResult));
         }
+
+        [Test]
+        public void TestTotalCostOfProductsInBasket()
+        {
+            //Arrange
+            Supermarket customer = new Supermarket();
+            customer.Add("Apple", 30);
+            customer.Add("Coffee", 20);
+            customer.Add("Cheese", 70);
+            int expectedTotalCost = 120;
+
+            //Act
+            int actualTotalCost = customer.GetTotalPrices();
+
+            //Assert
+            Assert.That(expectedTotalCost, Is.EqualTo(actualTotalCost));
+        }
     }
 }
